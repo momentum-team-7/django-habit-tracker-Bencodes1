@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from pathlib import Path
-
+import django_on_heroku
 import environ
 
 env = environ.Env(
@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,3 +144,6 @@ INTERNAL_IPS = [
 import django_on_heroku
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
+
+LOGIN_REDIRECT_URL = '/my_home/'
+LOGOUT_REDIRECT_URL = '/'
