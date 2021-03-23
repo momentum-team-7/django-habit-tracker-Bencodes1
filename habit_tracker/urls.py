@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name = 'home'),
-    path('my_home/', views.my_home, name='my-home')
-    path('user_page/<int:pk>', views.user_page, name='user-page')
+    path('my_home/', views.my_home, name='my-home'),
+    path('user_page/<int:pk>', views.user_page, name='user-page'),
 
 ]
 

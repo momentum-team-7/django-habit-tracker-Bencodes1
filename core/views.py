@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.models import User, Tracking, Habit, Profile
+from .models import User, Tracking, Habit, Profile
 
 # Create your views here.
 def home(request):

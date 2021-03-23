@@ -5,6 +5,12 @@ from django.db.models.fields import related
 class User(AbstractUser):
     pass
 
+class Tracking(models.Model):
+    count = models.IntegerField()
+    date = models.DateField()
+
+    def __str__(self):
+        return f'{self.count}'
 
 class Habit(models.Model):
     habit = models.CharField(max_length=64)
@@ -16,12 +22,6 @@ class Habit(models.Model):
     def __str__(self):
         return self.habit
 
-class Tracking(models.Model):
-    count = models.IntegerField()
-    date = models.DateField()
-
-    def __str__(self):
-        return f'{self.count}'
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')        
